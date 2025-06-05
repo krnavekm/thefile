@@ -3,9 +3,9 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const DISCORD_TOKEN = 'MTM4MDExMTI3NTU2ODE0MDM2OA.G4HiqA.Q59ydj4HQAtC0wfVL4_Od9McdAH9zejKjxvYYo';
-const GUILD_ID = '1379908489966649344';
-const CHANNEL_ID = '1379908490578886759';
+const DISCORD_TOKEN = 'process.env.DISCORD_TOKEN';
+const GUILD_ID = 'process.env.GUILD_ID';
+const CHANNEL_ID = 'process.env.CHANNEL_ID';
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const app = express();
