@@ -3,9 +3,9 @@ const { Client, GatewayIntentBits } = require('discord.js');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const DISCORD_TOKEN = 'process.env.DISCORD_TOKEN';
-const GUILD_ID = 'process.env.GUILD_ID';
-const CHANNEL_ID = 'process.env.CHANNEL_ID';
+const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
+const GUILD_ID = process.env.GUILD_ID;
+const CHANNEL_ID = process.env.CHANNEL_ID;
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const app = express();
@@ -24,7 +24,7 @@ app.post('/webhook', async (req, res) => {
     const invite = await channel.createInvite({
       maxUses: 1,
       unique: true,
-      maxAge: 86400 // platnost 1 den
+      maxAge: 86400 // 1 den
     });
 
     console.log(`🎟️ New invite created: ${invite.url}`);
